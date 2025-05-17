@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -37,8 +38,7 @@ const TestimonialsSection = () => {
       text: "With the knowledge imparted in me, I will not only use these new skills for career or personal growth, I will use it to create positive impact in the data analysis industry, and also use it to educate my peers and youths in my community..",
       author: "Umaru Jack Kamara",
     },
-
-	{
+    {
       imageSrc: '/t1.webp',
       text: "My experienced during the time of our program with IISPPR-FELLOWSHIP was a wounderfull one..I have no regret of getting the knowledge I got from the program. And also I have no regret of getting the knowledge I got from the program.",
       author: "Anthony Mark Kamara jr.",
@@ -129,8 +129,15 @@ const TestimonialsSection = () => {
   );
 };
 
+// ✅ Updated Card component with Framer Motion
 const Card = ({ imageSrc, text, author }) => (
-  <div className="xl:w-[23vw] lg:w-[25vw] lg:h-[40vh] w-[60vw] h-[50vh] sm:w-[40vw] md:w-[30vw] bg-gray-300 rounded-xl flex flex-col items-center justify-start shadow-md mx-auto p-3 relative text-black">
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: false, amount: 0.3 }}
+    transition={{ duration: 0.6 }}
+    className="xl:w-[23vw] lg:w-[25vw] lg:h-[40vh] w-[60vw] h-[50vh] sm:w-[40vw] md:w-[30vw] bg-gray-300 rounded-xl flex flex-col items-center justify-start shadow-md mx-auto p-3 relative text-black"
+  >
     <div className="w-16 h-16 mt-4 mb-2 bg-white rounded-full overflow-hidden flex items-center justify-center 
                     lg:absolute lg:top-[-9vh] lg:left-1/2 lg:transform lg:-translate-x-1/2">
       {imageSrc && (
@@ -151,7 +158,7 @@ const Card = ({ imageSrc, text, author }) => (
         <span className="text-red-500 text-[30px] mr-1">~</span>{author}
       </p>
     )}
-  </div>
+  </motion.div>
 );
 
 export default TestimonialsSection;
