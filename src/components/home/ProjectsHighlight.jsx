@@ -1,63 +1,113 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  }),
+};
 
 const ProjectsHighlight = () => {
   const projects = [
     {
       title: 'Project 1',
-      description: 'This project focuses on sustainable solutions using modern technology for rural development.',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum sem quis eros posuere.',
     },
     {
       title: 'Project 2',
-      description: 'An initiative to provide digital education platforms for underprivileged children.',
+      description:
+        'Sed ultricies libero quis sem porttitor lacinia. Nunc a ultrices ex. Nulla facilisi.',
     },
     {
       title: 'Project 3',
-      description: 'A community-driven project aimed at promoting organic farming through IoT tools.',
+      description:
+        'Aliquam erat volutpat. Pellentesque habitant morbi tristique senectus et netus.',
     },
   ];
 
   return (
     <div
-      className="w-full min-h-screen text-gray-800 py-16 px-6"
-      style={{
-        background: 'linear-gradient(to right, #edf8e9, #c7e9c0, #a1d99b, #74c476, #41ab5d, #238b45, #005a32)',
-      }}
+      className="relative w-full min-h-screen bg-cover bg-center"
+      style={{ backgroundImage: "url('/Bali rice fields.jpg')" }}
     >
-      {/* Heading */}
-      <h2 className="text-4xl md:text-5xl font-bold font-sans mb-6 text-green-900">
-        Our Projects
-      </h2>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
 
-      {/* Description */}
-      <p className="text-base md:text-lg max-w-3xl font-light mb-8">
-        We work on real-world impact through community-centered projects. Explore some of our highlighted work below.
-      </p>
+      {/* Content */}
+      <div className="relative z-10 pt-20 pb-12 max-w-7xl mx-auto px-6 text-white">
+        {/* Heading */}
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          className="text-[48px] md:text-[80px] font-playfair font-medium leading-tight"
+        >
+          Projects
+        </motion.h2>
 
-      {/* Button */}
-      <Link to="/projects">
-        <button className="bg-green-600 text-white font-medium px-6 py-2 rounded hover:bg-green-800 transition">
-          See More →
-        </button>
-      </Link>
+        {/* Description */}
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          custom={1}
+          className="mt-6 max-w-3xl text-lg font-montserrat leading-relaxed"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum sem quis eros posuere, vitae tempor tellus porta.
+        </motion.p>
 
-      {/* Project Cards */}
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="bg-white p-6 rounded-xl border border-green-300 shadow ring-1 ring-green-500/30 ring-offset-2 ring-offset-green-100"
-          >
-            <h3 className="text-xl font-semibold mb-2 text-green-800">{project.title}</h3>
-            <p className="text-sm text-gray-700 mb-4">{project.description}</p>
-            <Link
-              to="/projects"
-              className="text-green-700 hover:underline text-sm font-medium"
+        {/* Button */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          custom={2}
+          className="mt-6"
+        >
+          <Link to="/projects">
+            <button className="bg-lime-400 text-black font-semibold font-montserrat px-6 py-3 rounded-full flex items-center gap-2 transition duration-300 hover:bg-black hover:text-white hover:scale-105 hover:shadow-xl">
+              See More <span className="text-xl">→</span>
+            </button>
+          </Link>
+        </motion.div>
+
+        {/* Cards */}
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              custom={index + 3}
+              initial="hidden"
+              whileInView="visible"
+              variants={fadeInUp}
+              className="relative group"
             >
-              Learn More →
-            </Link>
-          </div>
-        ))}
+              {/* Glow on Hover */}
+              <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-purple-500 to-lime-400 opacity-0 group-hover:opacity-100 blur transition duration-300"></div>
+
+              {/* Card Content */}
+              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 text-white shadow-lg border border-white/20 transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl hover:rotate-[1deg]">
+                <h3 className="text-2xl font-playfair mb-4">{project.title}</h3>
+                <p className="text-sm font-montserrat mb-6">{project.description}</p>
+                <Link
+                  to="/projects"
+                  className="inline-flex items-center gap-1 text-white font-semibold font-montserrat hover:underline"
+                >
+                  Learn More <span>→</span>
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );
