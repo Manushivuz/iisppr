@@ -1,5 +1,19 @@
 import React from "react";
+import { motion } from "framer-motion";
 import WorkTogether from "./WorkTogether";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
 
 const AboutSection = () => {
   return (
@@ -13,7 +27,17 @@ const AboutSection = () => {
             style={{ backgroundImage: "url('1.png')" }}
           ></div>
 
-          <WorkTogether />
+          {/* Animated WorkTogether Component */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInUp}
+            custom={0}
+            viewport={{ once: false, amount: 0.5 }} // 👈 replay animation on every scroll into view
+            className="relative z-10"
+          >
+            <WorkTogether />
+          </motion.div>
         </section>
       </section>
     </div>
