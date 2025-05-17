@@ -1,29 +1,35 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { FaHandsHelping, FaUsers, FaDove, FaGlobe } from 'react-icons/fa';
+import { IoWomanOutline } from "react-icons/io5";
 import { motion, useInView } from 'framer-motion';
 import CountUp from 'react-countup';
 
 const stats = [
   {
     icon: <FaHandsHelping className="text-green-700 text-4xl" />,
-    number: 4597,
-    label: 'People Rised',
-  },
-  {
-    icon: <FaUsers className="text-green-700 text-4xl" />,
-    number: 8945,
-    label: 'Volunteer',
-  },
-  {
-    icon: <FaDove className="text-green-700 text-4xl" />,
-    number: 10000000,
-    label: 'Poor People Saved',
-    isMillion: true,
+    number: 21,
+    label: 'Active States',
   },
   {
     icon: <FaGlobe className="text-green-700 text-4xl" />,
-    number: 100,
-    label: 'Country Member',
+    number: 53,
+    label: 'Countries Research Community',
+  },
+  {
+    icon: <FaUsers className="text-green-700 text-4xl" />,
+    number: 10000,
+    label: 'People Reach',
+    isMillion: true,
+  },
+  {
+    icon: <IoWomanOutline className="text-green-700 text-4xl" />,
+    number: 8000,
+    label: 'Women Reach',
+  },
+  {
+    icon: <FaDove className="text-green-700 text-4xl" />,
+    number: 50000,
+    label: 'People on Social Media',
   },
 ];
 
@@ -58,7 +64,7 @@ const StatsSection = () => {
           </motion.h2>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}

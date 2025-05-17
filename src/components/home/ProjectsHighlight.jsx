@@ -36,11 +36,11 @@ const ProjectsHighlight = () => {
 
   return (
     <div
-      className="relative w-full min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/Bali rice fields.jpg')" }}
+      className="relative w-full min-h-screen bg-white bg-cover bg-center"
+      
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-black/5 backdrop-blur-sm"></div>
 
       {/* Content */}
       <div className="relative z-10 pt-20 pb-12 max-w-7xl mx-auto px-6 text-white">
@@ -49,7 +49,7 @@ const ProjectsHighlight = () => {
           initial="hidden"
           whileInView="visible"
           variants={fadeInUp}
-          className="text-[48px] md:text-[80px] font-playfair font-medium leading-tight"
+          className="text-[48px] text-black md:text-[80px] font-playfair font-medium leading-tight"
         >
           Projects
         </motion.h2>
@@ -60,9 +60,9 @@ const ProjectsHighlight = () => {
           whileInView="visible"
           variants={fadeInUp}
           custom={1}
-          className="mt-6 max-w-3xl text-lg font-montserrat leading-relaxed"
+          className="mt-6 max-w-3xl text-black text-lg font-montserrat leading-relaxed"
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum sem quis eros posuere, vitae tempor tellus porta.
+          Explore our impactful projects driving positive change in communities worldwide.
         </motion.p>
 
         {/* Button */}
@@ -95,12 +95,12 @@ const ProjectsHighlight = () => {
               <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-purple-500 to-lime-400 opacity-0 group-hover:opacity-100 blur transition duration-300"></div>
 
               {/* Card Content */}
-              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 text-white shadow-lg border border-white/20 transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl hover:rotate-[1deg]">
-                <h3 className="text-2xl font-playfair mb-4">{project.title}</h3>
-                <p className="text-sm font-montserrat mb-6">{project.description}</p>
+              <div className="relative bg-white/80 backdrop-blur-md rounded-2xl p-6 text-white shadow-lg border border-white/20 transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl hover:rotate-[1deg]">
+                <h3 className="text-2xl text-black font-playfair mb-4">{project.title}</h3>
+                <p className="text-sm text-black font-montserrat mb-6">{project.description}</p>
                 <Link
                   to="/projects"
-                  className="inline-flex items-center gap-1 text-white font-semibold font-montserrat hover:underline"
+                  className="inline-flex text-black items-center gap-1 font-semibold font-montserrat hover:underline"
                 >
                   Learn More <span>→</span>
                 </Link>

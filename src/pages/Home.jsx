@@ -1,6 +1,5 @@
 import React from 'react';
 import Hero from '../components/home/Hero';
-import Impact from '../components/home/Impact';
 import ProjectsHighlight from '../components/home/ProjectsHighlight';
 import Gallery from '../components/home/Gallery';
 import StatsSection from '../components/home/StatsSection';
@@ -28,6 +27,9 @@ const Home = () => {
 			{/* Section 3  Gallery*/}
 			<Gallery />
 			
+			
+			{/* Left blank intentionaly*/}
+			<div className="bg-white h-[14.7vh]"></div>
 			
 			{/* Section 4  Projects*/}
 			<ProjectsHighlight />
