@@ -35,9 +35,9 @@ const ProjectsHighlight = () => {
   ];
 
   return (
-    <div className="relative w-full min-h-screen bg-[#1a1f1c]">
+    <div className="relative w-full min-h-screen bg-gradient-to-b from-[#1a1f1c] via-[#1a1f1c] to-[#fff8e7]">
       {/* Content */}
-      <div className="relative z-10 pt-20 pb-12 max-w-7xl mx-auto px-6 text-white">
+      <div className="relative z-10 pt-20 pb-16 max-w-7xl mx-auto px-6 text-white">
         {/* Heading */}
         <motion.h2
           initial="hidden"
